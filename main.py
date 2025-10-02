@@ -1,26 +1,18 @@
 import streamlit as st
 import plotly.express as px
 import time
-import requests
-import selectorlib
+from funtions import scrape
+from funtions import add_temp
+from funtions import extract
 
 URL="http://programmer100.pythonanywhere.com/"
-
-def scrape(url):
-    response=requests.get(url)
-    source=response.text
-    return source
-
-def extract(source):
-    extractor=selectorlib.Extractor.from_yaml_file("extract.yaml")
-    value=extractor.extract(source)["temp"]
-    return value
-
-def add_temp
+timern=time.strftime("%Y-%m-%d-%H-%M-%S")
 
 if __name__=="__main__":
     while True:
         source=(scrape(URL))
         extracted=extract(source)
-        print(extracted)
-    time.sleep(2)
+        add_temp(extracted)
+
+        print(timern+","+extracted)
+        time.sleep(2)
