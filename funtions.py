@@ -18,5 +18,5 @@ def extract(source):
 
 
 def add_temp(extracted):
-    with open("data.txt","a") as file:
+    with open("time_temp.txt","a") as file:
         file.write(timern+","+extracted+"\n")
